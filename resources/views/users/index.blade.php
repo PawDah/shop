@@ -22,11 +22,33 @@
             <td>{{$user->name}}</td>
             <td>{{$user->surname}}</td>
             <td>{{$user->phone_number}}</td>
-            <td>-</td>
+            <td>
+                <button class="btn delete btn-danger btn-sm" data-id="{{$user->id}}">Usuń</button>
+            </td>
         </tr>
         @endforeach
     </table>
 
         {{ $users->links() }}
     <div/>
+@endsection
+@section('javascript')
+            document.addEventListener('DOMContentLoaded', function () {
+            $(function() {
+            $('.delete').click(function (){
+                $.ajax({
+                method: "DELETE",
+                url: "http://shop.test/users/"+ $(this).data("id")
+                // data: { id:$(this).data("id") }
+            })
+                .done(function( response ) {
+                    window.location.reload();
+            })
+                .fail(function (response){
+                    alert("FAIL");
+                });
+            })
+            })
+
+            }, false);
 @endsection
