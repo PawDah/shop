@@ -6,7 +6,14 @@ import 'bootstrap';
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+
+
+
 import axios from 'axios';
+import jQuery from 'jquery';
+import sweetalert2 from 'sweetalert2'
+window.$ = jQuery;
+window.Swal=sweetalert2
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
