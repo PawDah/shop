@@ -42,9 +42,23 @@
 
                                 <div class="col-md-6">
                                     <input id="price" type="number" step="0.01" min="0" class="form-control"   name="price" value="{{ $product->price }}" disabled>
-
                                 </div>
                             </div>
+                        <div class="row mb-3">
+                            <label for="category" class="col-md-4 col-form-label text-md-end">Kategoria</label>
+
+                            <div class="col-md-6">
+                                <select id="category" class="form-control" name="category_id" disabled>
+                                    @if($product->hasCategory())
+                                        <option value="">{{$product->category->name}}</option>
+                                    @else
+                                        <option>Brak</option>
+                                    @endif
+
+
+                                </select>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
