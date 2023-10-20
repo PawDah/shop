@@ -8,13 +8,14 @@
                     <div class="row mb-5">
                         <div class="col-12">
                             <div class="dropdown text-md-left text-center float-md-start mb-3 mt-3 mt-md-0 mb-md-0">
-                                <label class="mr-2">Sort by:</label>
-                                <a class="btn btn-lg btn-light dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relevance <span class="caret"></span></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                    <a class="dropdown-item" href="#">Relevance</a>
-                                    <a class="dropdown-item" href="#">Price Descending</a>
-                                    <a class="dropdown-item" href="#">Price Ascending</a>
-                                    <a class="dropdown-item" href="#">Best Selling</a>
+                                <label class="mr-2">Sortuj:</label>
+                                <a class="btn btn-lg btn-light dropdown-toggle products-actual-sort" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Domyślne<span class="caret"></span></a>
+                                <div class="dropdown-menu products-sort" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <a class="dropdown-item" href="#">Domyślne</a>
+                                    <a class="dropdown-item" href="#">Cena rosnąco</a>
+                                    <a class="dropdown-item" href="#">Cena malejąco</a>
+                                    <a class="dropdown-item" href="#">Nazwa A-Z</a>
+                                    <a class="dropdown-item" href="#">Nazwa Z-A</a>
                                 </div>
                             </div>
                             <div class="btn-group">

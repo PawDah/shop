@@ -1,19 +1,24 @@
 $(function (){
     $('div.products-count a').click(function () {
         $('a.products-actual-count').text($(this).text());
-        getProducts($(this).text());
+        getProducts($(this).text(), $('a.products-actual-sort').text());
+    });
+
+    $('div.products-sort a').click(function () {
+        $('a.products-actual-sort').text($(this).text());
+        getProducts($('a.products-actual-count').first().text(),$(this).text());
     });
 
     $('a#filter-button').click(function (){
-        getProducts($('a.products-actual-count').first().text());
+        getProducts($('a.products-actual-count').first().text(),$('a.products-actual-sort').text());
     })
 
-    function getProducts(paginate) {
+    function getProducts(paginate,sort) {
         const form = $('#filter-form').serialize();
         $.ajax({
             method: "GET",
             url: "/",
-            data: form + "&" + $.param({paginate: paginate}),
+            data: form + "&" + $.param({paginate: paginate})+ "&" + $.param({sort: sort}),
         })
             .done(function( response ) {
                 $('#products_wrapper').empty();
