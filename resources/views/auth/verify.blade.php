@@ -16,9 +16,10 @@
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form id="email-form" class="d-inline" method="POST" action="{{ route('verification.send') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <a  style="text-decoration: underline;color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));cursor:pointer" onclick="event.preventDefault(); document.getElementById('email-form').submit();">{{ __('click here to request another') }}
+                        </a>.
                     </form>
                 </div>
             </div>
