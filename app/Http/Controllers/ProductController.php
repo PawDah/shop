@@ -44,7 +44,7 @@ class ProductController extends Controller
             $product->image_path=$request->file('image')->store('products');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status','Produkt Dodany!');
     }
 
     /**
@@ -78,16 +78,20 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status','Produkt Zaktualizowany!');;
     }
 
     /**
      * Remove the specified resource from storage.
+     * @param Product $product
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $product->delete();
+            $request->session()->flash('status', 'Produkt Usunięty');
             return response()->json([
                 'status'=>'succes'
             ]);

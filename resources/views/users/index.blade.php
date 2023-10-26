@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-
+        @include('helpers.flash-messages')
+        <div class="col-6">
+            <h1>Lista Użytkowników</h1>
+        </div>
     <table class="table table-hover">
         <thead>
         <tr>

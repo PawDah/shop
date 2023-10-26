@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use PHPUnit\Logging\Exception;
 
@@ -60,11 +61,16 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * *
+     * @param User $user
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function destroy(User $user): \Illuminate\Http\JsonResponse
+    public function destroy(User $user, Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $user->delete();
+            $request->session()->flash('status', 'Użytkownik Usunięty');
             return response()->json([
                 'status'=>'succes'
             ]);

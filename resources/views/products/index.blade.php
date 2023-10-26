@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+     @include('helpers.flash-messages')
         <div class="row">
         <div class="col-6">
             <h1>Lista Produktów</h1>
@@ -47,7 +48,7 @@
                                 Edytuj
                             </button>
                         </a>
-                        <button class="btn delete btn-danger btn-sm" data-id="{{$product->id}}">Usuń</button>
+                        <button class="btn delete btn-danger" data-id="{{$product->id}}">Usuń</button>
                     </td>
                 </tr>
             @endforeach
