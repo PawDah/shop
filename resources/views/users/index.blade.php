@@ -4,7 +4,7 @@
     <div class="container">
         @include('helpers.flash-messages')
         <div class="col-6">
-            <h1>Lista Użytkowników</h1>
+            <h1><i class="fa-solid fa-user-group"></i> Lista Użytkowników</h1>
         </div>
     <table class="table table-hover">
         <thead>
@@ -26,7 +26,7 @@
             <td>{{$user->surname}}</td>
             <td>{{$user->phone_number}}</td>
             <td>
-                <button class="btn delete btn-danger btn-sm" data-id="{{$user->id}}">Usuń</button>
+                <button class="btn delete btn-danger btn-sm" data-id="{{$user->id}}"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>
         @endforeach

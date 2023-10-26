@@ -5,12 +5,12 @@
      @include('helpers.flash-messages')
         <div class="row">
         <div class="col-6">
-            <h1>Lista Produktów</h1>
+            <h1><i class="fa-regular fa-rectangle-list"></i> Lista Produktów </h1>
 
         </div>
             <div class="col-6">
                 <a class="float-end" href="{{route('products.create')}}">
-                <button type="button" class="btn btn-primary">Dodaj</button>
+                <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Dodaj</button>
                 </a>
             </div>
         </div>
@@ -40,15 +40,15 @@
                     <td>
                         <a href="{{route('products.show',$product->id)}}">
                             <button class="btn btn-success">
-                                Podgląd
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                         </a>
                         <a href="{{route('products.edit',$product->id)}}">
                             <button class="btn btn-info">
-                                Edytuj
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </button>
                         </a>
-                        <button class="btn delete btn-danger" data-id="{{$product->id}}">Usuń</button>
+                        <button class="btn delete btn-danger" data-id="{{$product->id}}"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             @endforeach
