@@ -21,11 +21,19 @@ use Illuminate\Http\Request;
 Route::get('/',[WelcomeController::class,'index']);
 
 Route::middleware(['auth','verified'])->group(function (){
-    Route::resource('products',ProductController::class);
+    Route::middleware(['can:isAdmin'])->group(function (){
+        Route::resource('products',ProductController::class);
+        Route::delete('/users/{user}',[UserController::class,'destroy']);
+        Route::get('/users/list',[UserController::class,'index']);
+    });
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::delete('/users/{user}',[UserController::class,'destroy'])->middleware('auth');
-    Route::get('/users/list',[UserController::class,'index'])->middleware('auth');
 });
+
+
+
+
+
 
 //EmailVerification
 Route::get('/email/verify', function () {
