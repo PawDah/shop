@@ -53,6 +53,8 @@
                                             <i>
                                                PLN {{$product->price}}</i>
                                         </h5>
+                                        <button style="cursor: pointer" type="button" class="btn btn-sm btn-primary add-cart-button" data-id="{{$product->id}}" @guest disabled @endguest>
+                                            <i class="fas fa-cart-plus"></i> Dodaj do koszyka</button>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +107,11 @@
     </div>
 @endsection
 @section('javascript')
-    const storagePath='{{asset('storage')}}/';
-    const defaultImage='{{$defaultImage}}/';
+    const WELCOME_DATA = {
+     storagePath: '{{asset('storage')}}/',
+     defaultImage: '{{$defaultImage}}/',
+     addToCart: '{{url('cart')}}/',
+    }
 @endsection
 @section('js-files')
     @vite('resources/js/welcome.js');
