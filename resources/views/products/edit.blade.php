@@ -100,18 +100,18 @@
                             <div class="row mb-3 justify-content-center">
                                 <div class="col-md-4">
                                     @if(!is_null($product->image_path))
+                                    <a href="{{ route('products.downloadImage',$product->id) }}">
                                         <img src="{{asset('storage/'. $product->image_path)}}" class="img-fluid mx-auto d-block" alt="Zdjęcie Produktu">
+                                    </a>
                                     @endif
 
                                 </div>
                             </div>
 
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                            <div class="row mb-0 justify-content-center">
+                                    <button type="submit" class="btn btn-primary col-md-1">
                                         Zapisz
                                     </button>
-                                </div>
                             </div>
                         </form>
                     </div>
