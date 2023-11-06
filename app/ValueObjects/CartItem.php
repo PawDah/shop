@@ -82,6 +82,10 @@ class CartItem
     {
         return $this->imagePath;
     }
+    public function getImage(): string
+    {
+        return !is_null($this->imagePath) ? asset("storage/".$this->imagePath): config('shop.defaultImage');
+    }
 
     /**
      * @param Product $product

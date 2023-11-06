@@ -30,7 +30,7 @@ $(function (){
                     cancelButtonText: ' <i class="fas fa-shopping-bag"></i> Kontnuuj zakupy'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        alert('Ok')
+                        window.location=WELCOME_DATA.listCart
                     }
                 })
             })
@@ -47,6 +47,7 @@ $(function (){
             data: form + "&" + $.param({paginate: paginate})+ "&" + $.param({sort: sort}),
         })
             .done(function( response ) {
+                console.log(WELCOME_DATA.defaultImage)
                 $('#products_wrapper').empty();
                 $('#products-count').text(response.data.length);
                 $.each(response.data,function (index,product){
@@ -63,7 +64,7 @@ $(function (){
                         '                                            <i>\n' +
                         '                                               PLN ' + product.price + '</i>\n' +
                         '                                        </h5>\n' +
-                        '<button style="cursor: pointer" type="button" class="btn btn-sm btn-primary add-cart-button" data-id="'+product.id +'"> <i class="fas fa-cart-plus"></i> Dodaj do koszyka</button>' +
+                        '<button style="cursor: pointer" type="button" class="btn btn-sm btn-primary add-cart-button"' + getDisabled() + ' data-id="'+product.id +'"> <i class="fas fa-cart-plus"></i> Dodaj do koszyka</button>' +
                         '                                    </div>\n' +
                         '                                </div>\n' +
                         '                            </div>'
@@ -78,5 +79,11 @@ $(function (){
             return WELCOME_DATA.storagePath + product.image_path;
         }
         return WELCOME_DATA.defaultImage;
+    }
+    function getDisabled(){
+        if(WELCOME_DATA.isGuest){
+            return 'disabled'
+        }
+        return '';
     }
 });

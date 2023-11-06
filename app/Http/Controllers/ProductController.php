@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpsertProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use http\Env\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;

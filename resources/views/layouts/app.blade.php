@@ -9,6 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite('resources/sass/app.scss')
+    @yield('css-files')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -59,6 +60,7 @@
                                     <a class="dropdown-item" href="/users/list">Użytkownicy</a>
                                     <a class="dropdown-item" href="{{route('products.index')}}">Produkty</a>
                                     @endcan
+                                        <a class="dropdown-item" href="{{route('cart.index')}}">Koszyk</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -81,7 +83,7 @@
         </main>
     </div>
 
-    @vite('resources/js/app.js');
+    @vite('resources/js/app.js')
     <script  type="text/javascript">
         @yield('javascript')
     </script>
