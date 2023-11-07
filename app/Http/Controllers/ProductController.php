@@ -13,6 +13,9 @@ use Illuminate\View\View;
 use PHPUnit\Logging\Exception;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ *
+ */
 class ProductController extends Controller
 {
     /**
@@ -73,7 +76,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpsertProductRequest $request, Product $product)
+    public function update(UpsertProductRequest $request, Product $product): RedirectResponse
     {
         $oldImagePath = $product->image_path;
         $product->fill($request->validated());

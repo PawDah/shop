@@ -26,6 +26,11 @@
             <td>{{$user->surname}}</td>
             <td>{{$user->phone_number}}</td>
             <td>
+                <a href="{{route('users.edit',$user->id)}}">
+                    <button class="btn btn-info btn-sm">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </a>
                 <button class="btn delete btn-danger btn-sm" data-id="{{$user->id}}"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>

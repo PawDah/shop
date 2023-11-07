@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use PHPUnit\Logging\Exception;
 
+/**
+ *
+ */
 class UserController extends Controller
 {
     /**
@@ -45,18 +52,40 @@ class UserController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param User $user
+     * @return View
      */
-    public function edit(string $id)
+    public function edit(User $user) : View
     {
-        //
+        return view('users.edit',[
+            'user' => $user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
+     * *
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return RedirectResponse
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        //
+
+        $validatedAddress = $request->validated()['address'];
+        if($user->hasAddress()){
+            $address = $user->address;
+            $address->fill($validatedAddress);
+        }
+        else{
+            $address = new Address($validatedAddress);
+        }
+        $user->address()->save($address);
+        $user->fill($request->validated());
+        $user->save();
+        return redirect(route('users.index'))->with('status','Użytkownik Zaktualizowany!');
+
     }
 
     /**
@@ -66,7 +95,7 @@ class UserController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function destroy(User $user, Request $request): \Illuminate\Http\JsonResponse
+    public function destroy(User $user, Request $request): JsonResponse
     {
         try {
             $user->delete();
