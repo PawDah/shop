@@ -15,6 +15,11 @@ import sweetalert2 from 'sweetalert2'
 window.$ = jQuery;
 window.Swal=sweetalert2
 window.axios = axios;
+window.$.ajaxSetup({
+     headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     }
+});
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
