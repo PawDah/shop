@@ -3,8 +3,8 @@
 Shop is a online store project enabling store management and customer shopping written in Laravel 10.
 
 ## Installation
-Create your own .env file from .env.example
-Create an empty database with the same variables that are in the .env file
+Create your own .env file from .env.example<br>
+Create an empty database with the same variables that are in the .env file<br>
 Use npm to install packages <br>
 Images from project:
 ![image](https://github.com/PawDah/shop/assets/121932715/ccd95aad-6521-4189-9346-98b24dfcca6c)
