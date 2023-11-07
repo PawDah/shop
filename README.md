@@ -1,6 +1,6 @@
 # Shop
 
-Shop is a online store design enabling store management and customer shopping written in Laravel 10.
+Shop is a online store project enabling store management and customer shopping written in Laravel 10.
 
 ## Installation
 Create your own .env file from .env.example
