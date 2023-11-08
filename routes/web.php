@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
@@ -34,6 +35,8 @@ Route::middleware(['auth','verified'])->group(function (){
     });
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::delete('/cart/{product}',[CartController::class,'destroy'])->name('cart.destroy');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });

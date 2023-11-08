@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\ValueObjects\Cart;
-use App\ValueObjects\CartItem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 use PHPUnit\Logging\Exception;

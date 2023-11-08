@@ -61,6 +61,24 @@ class Cart
     }
 
     /**
+     * @return int
+     */
+    public function getQuantity(): int
+    {
+        return $this->items->sum(function ($item){
+            return $item->getQuantity();
+        });
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasItems(): bool
+    {
+        return $this->items->isNotEmpty();
+    }
+
+    /**
      * @param Product $product
      * @return Cart
      */
