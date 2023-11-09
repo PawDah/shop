@@ -15,6 +15,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Ilość</th>
                     <th scope="col">Cena PLN</th>
+                    <th scope="col">Zamówione Przez:</th>
                     <th scope="col">Produkty</th>
                 </tr>
                 </thead>
@@ -25,12 +26,13 @@
                         <td scope="row">{{$order->id}}</td>
                         <td scope="row">{{$order->quantity}}</td>
                         <td scope="row">{{$order->price}}</td>
+                        <td scope="row">{{$order->user->name}} {{$order->user->surname}}</td>
                         <td scope="row">
                             <ul>
                         @foreach($order->products as $product)
 
                                 <li>
-                                {{$product->name}} - {{$product->description}}
+                                {{$product->name}} - {{$product->description}} - {{$product->pivot->product_quantity}} szt
                                 </li>
 
                         @endforeach
